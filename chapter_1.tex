@@ -1,0 +1,40 @@
+\documentclass[main.tex]{subfiles}
+
+% The following commands are from the \textpages macro
+% and are needed for the subfile properly.
+% These commands are ignored when compiling main.tex
+\pagestyle{empty}
+\cleardoublepage
+\pagestyle{myheadings}\markboth{}{}
+\def\@chapapp{\protect\@textofChapter}
+\def\Thechapter{\arabic{chapter}}
+\pagenumbering{arabic}
+% End of commands
+
+
+\begin{document}
+
+\chapter{Introduction}
+
+\section{Background}
+This template is an updated version of the original UW thesis template and is a fork of the corresponding GitHub repository: \href{https://github.com/UWIT-IAM/UWThesis}{https://github.com/UWIT-IAM/UWThesis}.
+The original had not been updated in some time and was a bit cumbersome to work with so I have made some modifications to simplify it.
+The primary change is that it now utilizes the \texttt{subfiles} package to enable separate compilation of all the individual components.
+Additionally I've made some (personal-preference) formatting adjustments including a floating box to the reference publications(s) that a given chapter is based on.
+I've tested this package on Overleaf using the \texttt{pdfLaTeX} compiler but not any other compilers or platforms.
+
+
+\section{How to use this template}
+Each of the main sections are grouped into their own \texttt{.tex} files which can all be compiled separately.
+There are some opaque commands in the headers of the subfiles which enable the separate compilation but you only need to add the main body text where it specifies.
+Note that chapter numbers and the like will not be maintained in separate compilation but will be restored when compiling the whole thesis.
+To compile the full thesis simply compile the \texttt{main.tex} file.
+Separate bibliographies and \texttt{.bib} files per chapter may be possible but have not been tested.
+If you are adding a new chapter, simply copy the header of one of the existing chapters and reference it in \texttt{main.tex} via the \texttt{subfile} macro.
+You should not need to add any text into the main file directly.
+Most of the style formatting can be addressed in the header of \texttt{main.tex}.
+If you need to make adjustments to the actual typesetting of the UW style file then you will have to directly modify the TeX macros in \texttt{uwthesis.cls}.
+
+
+
+\end{document}

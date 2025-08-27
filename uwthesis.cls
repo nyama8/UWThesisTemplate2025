@@ -154,6 +154,9 @@
   \usepackage{natbib}
 \fi
 
+% Nick addition, lets figure captions be single spaced
+\usepackage{setspace}
+
 %
 % ---- page sizes ----------------------------------------------
 %
@@ -501,7 +504,9 @@
 \def\thecaptionletter{}
 \newif\ifcaptiontotoc\captiontotoctrue
 
-\def\caption{\@ifnextchar({\@specialcaption}{\@normalcaption}}
+\def\caption{
+\setstretch{1.0} % Nick addition, makes figure captions single spaced
+\@ifnextchar({\@specialcaption}{\@normalcaption}}
 
 \def\@normalcaption{\refstepcounter\@captype \@dblarg{\@caption\@captype}}
 \def\@specialcaption(#1){%

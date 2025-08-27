@@ -1,0 +1,119 @@
+\documentclass[11pt, proquest]{uwthesis}
+
+% ------------------------------
+% Packages
+% ------------------------------
+% Required packages:
+\usepackage{subfiles}   % Necessary for separate compilation
+\usepackage{graphicx}   % Point to where you're storing figures
+\graphicspath{
+  {figures/}
+  {figures/ch1/}
+  {figures/ch2/}
+}
+\usepackage{tcolorbox}  % For the reference boxes in the chapter
+\usepackage{tabularx}   % For formatting the reference boxes in the chapter
+\usepackage{float}      % Float placement
+
+% Useful (optional) packages:
+% Math typesetting
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{mathtools}
+% Modify hyperlink appearances
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = black
+}
+% Colors for editing.
+\usepackage{xcolor}
+\usepackage{color}
+\definecolor{red}{rgb}{1,0,0}
+\newcommand{\red}[1]{{\color{red} #1}}
+\newcommand{\blue}[1]{{\color{blue} #1}}
+% Nicer table formatting
+\usepackage{booktabs}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+% To set the separation in lists
+\usepackage{enumitem}
+\setlist{itemsep=-0.25em} % Full-line between items
+% Footnote typesetting
+\usepackage[bottom]{footmisc}
+
+
+% ------------------------------
+% Additional global formatting
+% ------------------------------
+\setcounter{tocdepth}{1}  % Print the chapter and sections to the toc
+% Ragged bottom to avoid large gaps between paragraphs
+% If used, some floats (such as the tcolorbox at the start of sections) will ride up and stick to the bottom of the text on the given page.
+% Not a problem if each page the boxes are included are fully occupied with text.
+\raggedbottom
+
+% Define/renew macros or commands below here
+% ------------------------------
+
+
+
+
+
+% Edit title as needed, line breaks '\\' are valid
+% ------------------------------
+
+\Title{Thesis title}
+\Author{First M. Last}
+\Year{2025}
+\Program{Your department}
+\Chair{U. R. Advisor}{Title}{Department}
+\Signature{Committee member 1}
+\Signature{Committee member 2}
+\Signature{Committee member 3}
+
+ 
+\begin{document}
+ 
+
+% Start of front matter
+% ------------------------------
+\prelimpages                        % Denotes start of front matter
+\titlepage                          % Creates the title page
+\copyrightpage                      % Creates copyright page (I moved this after the title page but it does not need to be).
+\subfile{abstract} \newpage         % Creates the abstract
+\tableofcontents                    % Creates the ToC
+\listoffigures                      % Creates the list of figures
+%\listoftables                      % Creates the list of tables
+%\subfile{glossary} \newpage        % Creates the glossary (omit if none).
+\subfile{acknowledgments} \newpage  % Creates the acknoledgements.
+
+% End of front matter
+% ------------------------------
+
+
+% Start of main text
+% ------------------------------
+\textpages
+
+% Chapters
+\subfile{chapter_1} \newpage
+\subfile{chapter_2} \newpage
+% Add more chapters here
+
+% Appendices
+\appendix
+\subfile{chapter_A1} \newpage
+
+\raggedbottom\sloppy
+
+% Bibliography
+\nocite{*}  
+\bibliographystyle{plain}
+\bibliography{main}
+
+
+\end{document}
